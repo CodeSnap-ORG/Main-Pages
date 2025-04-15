@@ -138,16 +138,22 @@
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="https://u.cubeupload.com/UploadMaster/1000003131.png" alt="Logo" width="30">
-      <span>CodeSnap</span>
-    </div>
-    <div class="search">
-      <input type="text" placeholder="Search..." />
-    </div>
-    <a href="https://auth.itinerary.eu.org/auth?redirect=${btoa(window.location.href)}&name=CodeSnap" id="login" class="profile">Login</a>
-  </header>
+<header>
+  <div class="logo">
+    <img src="https://u.cubeupload.com/UploadMaster/1000003131.png" alt="Logo" width="30">
+    <span>CodeSnap</span>
+  </div>
+  <div class="search">
+    <input type="text" placeholder="Search..." />
+  </div>
+  <a id="login" class="profile">Login</a>
+</header>
+  <script>
+    const loginLink = document.getElementById("login");
+    loginLink.href = `https://auth.itinerary.eu.org/auth?redirect=${btoa(window.location.href)}&name=CodeSnap`;
+  </script>
+
+
 
   <div class="container">
     <h2>Featured Projects</h2>
