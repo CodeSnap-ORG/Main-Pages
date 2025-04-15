@@ -4,12 +4,12 @@ const router = express.Router();
 let projects = [];
 
 // GET /api/projects
-router.get('/', (req, res) => {
+router.get('/api/projects', (req, res) => {
   res.json({ projects });
 });
 
 // PUT /api/projects
-router.put('/', (req, res) => {
+router.put('/api/projects', (req, res) => {
   const { name, thumbnail, genre, link } = req.body;
 
   if (!name || !thumbnail || !genre) {
