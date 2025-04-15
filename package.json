@@ -1,0 +1,9 @@
+{
+  "name": "main-pages",
+  "version": "1.0.0",
+  "description": "Shared Main Pages for CodeSnap projects",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
