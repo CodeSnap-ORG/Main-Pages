@@ -173,8 +173,9 @@
           const card = document.createElement('div');
           card.className = 'project-card';
           card.innerHTML = `
-            <img src="${project.thumbnail}" alt="${project.title}" />
+            <a href="${project.link}"><img src="${project.thumbnail}" alt="${project.title}" />
             <div class="title">${project.title}</div>
+            <small>${project.genre}</small></a>
           `;
           container.appendChild(card);
         });
