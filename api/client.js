@@ -6,26 +6,31 @@ router.use(express.json());
 
 router.post('/api/join', (req, res) => {
   const { username, password, img, email } = req.body;
-  if(req.headers.Authorisation === process.env.AUTH_CODE) {
-    user = [ 
-      "username": username 
-      "password": password
-      "image-link": img 
-      "email": email
-    ] 
+  if (req.headers.Authorization === process.env.AUTH_CODE) {
+    // Creating user object
+    const user = { 
+      username: username,
+      password: password,
+      "image-link": img,
+      email: email
+    };
+    // Adding user to the array
     users.push(user);
-} else {
-    res.json({ "Invalid Auth Key" });
-   } 
- });
+    res.json({ message: "User registered successfully" });
+  } else {
+    res.status(401).json({ message: "Invalid Auth Key" });
+  }
+});
 
 router.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if(user.includes(username) && user.includes(password)) {
-    res.json({ "Logged In" });
- } else {
-    res.json({ "Invalid Password Or Username" });
-   }
- });
+  const user = users.find(u => u.username === username && u.password === password);
+  
+  if (user) {
+    res.json({ message: "Logged In" });
+  } else {
+    res.status(401).json({ message: "Invalid Password Or Username" });
+  }
+});
 
 module.exports = router;
