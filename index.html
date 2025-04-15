@@ -166,6 +166,10 @@
   <script>
     const url = URLSearchParams(window.location.search);
     const code = url.get('privateCode');
+    const res = await fetch(`https://auth-api.itinerary.eu.org/auth/verifyToken/${code}`);
+    const data = await response.json();
+    const username = data.username;
+
     // Fetch top 20 projects
     fetch('/api/projects')
       .then(res => res.json())
