@@ -169,6 +169,7 @@
     const res = await fetch(`https://auth-api.itinerary.eu.org/auth/verifyToken/${code}`);
     const data = await response.json();
     const username = data.username;
+    document.getElementById('login').textContent = username;
 
     // Fetch top 20 projects
     fetch('/api/projects')
