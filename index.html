@@ -146,7 +146,7 @@
     <div class="search">
       <input type="text" placeholder="Search..." />
     </div>
-    <div class="profile">Profile</div>
+    <a href="https://auth.itinerary.eu.org/auth?redirect=${btoa(window.location.href)}&name=CodeSnap" id="login" class="profile">Login</a>
   </header>
 
   <div class="container">
@@ -164,6 +164,8 @@
   </div>
 
   <script>
+    const url = URLSearchParams(window.location.search);
+    const code = url.get('privateCode');
     // Fetch top 20 projects
     fetch('/api/projects')
       .then(res => res.json())
