@@ -12,7 +12,7 @@ router.get('/api/projects', (req, res) => {
 router.put('/api/projects', (req, res) => {
   const { name, thumbnail, genre, link } = req.body;
 
-  if (!name || !thumbnail || !genre) {
+  if (!name || !thumbnail || !genre || !link) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -20,7 +20,7 @@ router.put('/api/projects', (req, res) => {
     name,
     image: thumbnail,
     genre,
-    link: link || '#'
+    link: link
   };
 
   projects.push(project);
